@@ -15,6 +15,8 @@ import lightimg from './images/mode-light-svgrepo-com.svg'
 import { useDispatch } from 'react-redux';
 import { logoutUser } from '../redux/authSlice';
 import { toast } from 'react-toastify';
+import Row from 'react-bootstrap/esm/Row';
+import Col from 'react-bootstrap/esm/Col';
 
 
 const Navbare = () => {
@@ -69,12 +71,15 @@ const Navbare = () => {
                       other
                     </NavDropdown.Item>
                   </NavDropdown>
-                  {auth._id?(<Nav.Link>
-                    <Button variant="danger" onClick={()=>{dispatch(logoutUser(null))
+                  {auth._id?(<Row>
+                    <Col> <Nav.Link><Link to="admin">Dashboard</Link></Nav.Link> </Col>
+
+                    <Col><Button variant="danger" onClick={()=>{dispatch(logoutUser(null))
                       toast.warning("Logged out",{position:"bottom-left"})
                       }}>Logout</Button>
-      
-                           </Nav.Link>):
+
+                         </Col></Row>
+                           ):
                            <><Nav.Link><Link to='register'>Register</Link></Nav.Link><Nav.Link><Link to='login'>login</Link></Nav.Link></>
                                   }
                  

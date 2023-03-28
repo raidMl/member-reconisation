@@ -11,6 +11,8 @@ import { clearCart,addToCart,removeFromCart } from '../redux/cartSlice';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { useGetAllusersQuery } from '../redux/UserApi';
+import Nav from 'react-bootstrap/Nav';
+import axios from 'axios';
 
 
 const Admin = () => {
@@ -23,11 +25,29 @@ const Admin = () => {
        }
    
 
-       useEffect(() => {
        
-      }, [cart,dispatch]);   
     return (
         <div className='cart-container'>
+            <Nav variant="pills" defaultActiveKey="/home">
+            <Nav.Item >
+        <Nav.Link  eventKey="link-4" >users list</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="link-0" >Add user</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="link-1">upload excel</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="link-2">Statistics</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="link-3">admin info</Nav.Link>
+      </Nav.Item>
+      <Nav.Item style={{marginLeft:"10px",marginTop:'5px'}}><Button variant="secondary" size="sm" onClick={()=>{handleClearCart()} }>delete All</Button> </Nav.Item>
+
+
+    </Nav>
 <h2>users list</h2>  
 {cart.usersItems==0?(<><div className='cart-empty'><p>there's no user</p></div></>
 
@@ -37,7 +57,6 @@ const Admin = () => {
     <><div>
                         <TableCard />
                     </div><div className="cart-summary container">
-                            <Button variant="secondary" size="sm" onClick={()=>{handleClearCart()} }>delete All</Button>
                            
 
                         </div></>

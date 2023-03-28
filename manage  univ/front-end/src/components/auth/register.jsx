@@ -13,7 +13,8 @@ function Register() {
         name:"",
         email:"",
         password:"",
-        qrcode:null
+        qrcode:null,
+        role:""
       
 
      });
@@ -47,7 +48,17 @@ function Register() {
 
         />
       </Form.Group>
-      
+      <Form.Group className="mb-3" >
+      <Form.Label>role</Form.Label>
+      <Form.Select size="" style={{width:"300px"}} aria-label="Default select example">
+      <option disabled>choose role </option>
+      <option value="student">student</option>
+      <option value="agent">agent</option>
+      <option value="teacher">teacher</option>
+      onChange={(e)=>setUser({...user, role:e.target.value})}
+    </Form.Select>
+        </Form.Group>
+
       <Form.Group className="mb-3" controlId="formGroupPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" placeholder="Password" style={{border:"1px solid #00000040"}} 

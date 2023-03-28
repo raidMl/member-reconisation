@@ -2,10 +2,12 @@ import React from 'react';
 import Table from 'react-bootstrap/Table';
 import { useSelector } from 'react-redux';
 import Button from 'react-bootstrap/Button';
-import { addToCart, removeFromCart } from '../redux/cartSlice';
+import { addToCart, removeFromCart,showUsers } from '../redux/cartSlice';
 import { useDispatch } from 'react-redux';
 import Row from 'react-bootstrap/esm/Row';
 import Col from 'react-bootstrap/esm/Col';
+import { useEffect } from 'react';
+import axios from 'axios';
 const TableCard = () => {
     const cart=useSelector((state)=>state.cart)
     const dispatch=useDispatch()
@@ -17,6 +19,15 @@ dispatch(removeFromCart(x))
       dispatch(addToCart(x))
           }
        
+          useEffect(() => {
+            axios.get('/api/models')
+              .then(res => {
+                dispatch(showUsers(res.data));
+              })
+              .catch(err => {
+                console.log(err);
+              });
+          }, [cart,dispatch]);
        
     return (
         <div>
@@ -40,10 +51,14 @@ dispatch(removeFromCart(x))
  
           <td><Row ><Col><img src={item.img} height='60' width='60' style={{"marginRight":"10px"}}  alt="" /></Col><Col>
           { item.name}</Col></Row>
-          <Row><Col></Col><Col><p  style={{fontSize:12,color:'rgb(0 0 0 / 81%)'}}>{item.desc}</p></Col></Row>
+          <Button variant="outline-primary" style={{"marginLeft":"20px",marginBottom:"5px"}} size="sm"  onClick={()=>null}>
+           edit
+        </Button>  
           <Button variant="outline-danger" style={{"marginLeft":"20px"}} size="sm"  onClick={()=>handleRemoveProd(item)}>
            remove
         </Button>   
+
+    
           </td>
           <td>${item.role}</td>
           <td>{item.degre}</td>
