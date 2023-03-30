@@ -2,13 +2,13 @@ import React from 'react';
 import Table from 'react-bootstrap/Table';
 import { useSelector } from 'react-redux';
 import Button from 'react-bootstrap/Button';
-import { addToCart, removeFromCart,showUsers } from '../redux/cartSlice';
+import { addToCart, removeFromCart,showUsers } from '../../redux/cartSlice';
 import { useDispatch } from 'react-redux';
 import Row from 'react-bootstrap/esm/Row';
 import Col from 'react-bootstrap/esm/Col';
 import { useEffect } from 'react';
 import axios from 'axios';
-const TableCard = () => {
+const TableCard = (props) => {
     const cart=useSelector((state)=>state.cart)
     const dispatch=useDispatch()
     const handleRemoveProd=(x)=>{
@@ -20,7 +20,7 @@ dispatch(removeFromCart(x))
           }
        
           useEffect(() => {
-            axios.get('/api/models')
+            axios.get('/localhost:5000/user')
               .then(res => {
                 dispatch(showUsers(res.data));
               })
@@ -37,17 +37,17 @@ dispatch(removeFromCart(x))
           <th>id</th>
           <th>name</th>
           <th>Role</th>
-          <th>degre</th>
+          <th>faculty</th>
           {/* <th>delete</th> */}
 
         </tr>
       </thead>
       <tbody>
-         {cart.usersItems.map(item=>{
+         {props.data.map(item=>{
 
          return(
-          <tr key={item.id}>
-          <td>${item.id}</td>
+          <tr key={item._id}>
+          <td>{item._id}</td>
  
           <td><Row ><Col><img src={item.img} height='60' width='60' style={{"marginRight":"10px"}}  alt="" /></Col><Col>
           { item.name}</Col></Row>
@@ -60,8 +60,8 @@ dispatch(removeFromCart(x))
 
     
           </td>
-          <td>${item.role}</td>
-          <td>{item.degre}</td>
+          <td>{item.role}</td>
+          <td>{item.faculty}</td>
         </tr>)
          })}
       </tbody>

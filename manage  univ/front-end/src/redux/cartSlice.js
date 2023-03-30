@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from 'react-toastify'
-import Data from "./data";
 const initialState = {
     usersItems: localStorage.getItem("usersItems") ? JSON.parse(localStorage.getItem("usersItems")) : [
         {

@@ -8,7 +8,11 @@ const userSchema = new mongoose.Schema({
     image: {
         type: String,
         required: false
-    }
+    },
+    faculty: { type: String, required: true, minlength: 6, maxlength: 30, },
+    matricule: { type: String, required: false, minlength: 3, maxlength: 30, },
+    isin: { type: Boolean, required: true, minlength:4, maxlength:5,default:false }
+
 },
 
 

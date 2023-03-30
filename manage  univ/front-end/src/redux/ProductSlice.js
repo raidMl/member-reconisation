@@ -13,7 +13,7 @@ export const usersFetch=createAsyncThunk(
    
     async(id=null,{rejectWithValue})=> {
     try{
-    const res=await axios.get("http://localhost:5000/users")
+    const res=await axios.get("http://localhost:5000/user")
     return res?.data  //if there is error don't show
     }
     catch(error){

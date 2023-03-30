@@ -73,6 +73,9 @@
   .dark .dropdown-menu a:hover{background-color: #198754;}
   .dark .offcanvas {background-color: #198754;}
   .dark .card-body{color:white;background-color: #333;}
+  .dark select *{color: rgb(36, 35, 35)!important;}
+  .dark select {color: rgb(36, 35, 35)!important;}
+
   .light {
   background-color: #fff!important;
   color: #333!important;

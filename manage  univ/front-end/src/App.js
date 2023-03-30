@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Navbare from './components/Navbare';
-import Admin from "./components/admin"
+import Admin from "./components/admin/admin"
 import Agent from "./components/Agent"
 import SearchBare from './components/SearchBare';
 
@@ -13,7 +13,7 @@ import { useSelector } from 'react-redux'
 import  {useState} from "react"
 import {ToastContainer} from 'react-toastify'
  import 'react-toastify/dist/ReactToastify.css';
-import Bag from './components/admin';
+import Bag from './components/admin/admin';
 import Carosel from './components/Carosel';
 import Register from './components/auth/register';
 import Login from './components/auth/login';

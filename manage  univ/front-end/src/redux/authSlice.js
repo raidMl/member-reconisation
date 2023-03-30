@@ -8,17 +8,20 @@ const initialState={
     name:"",
     email:"",
     _id:"",
+    role:"",
+    faculty:"",
     registerStatus: "",
     registerError:"",
     loginStatus:"",
     loginError:"",
     userLoaded:false,
+    isin:false
 };
 export const registerUser=createAsyncThunk(
     "auth/registerUser"
     ,async(values,{rejectWithValue})=>{
         try {
-         const token=await axios.post(`${url}/register`,{name:values.name,email:values.email,password:values.password})
+         const token=await axios.post(`${url}/register`,{name:values.name,email:values.email,role:values.role,faculty:values.faculty,isin:false,password:values.password})
          localStorage.setItem("token",token.data)
          return token.data      
         } catch (error) {
@@ -63,11 +66,13 @@ reducers:{
         name:"",
         email:"",
         _id:"",
+        role:"",
+        faculty:"",
         registerStatus: "",
         registerError:"",
         loginStatus:"",
         loginError:"",
-        userLoaded:false}
+        userLoaded:false,}
     },
 },
 

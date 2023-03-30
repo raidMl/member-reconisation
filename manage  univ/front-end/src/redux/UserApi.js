@@ -6,7 +6,9 @@ export  const usersApi = createApi({
     baseQuery:fetchBaseQuery({baseUrl:"http://localhost:5000/"}),
     endpoints:(builder)=>({
         getAllusers:builder.query({  // it create custom hook auto
-            query:()=>"users",
+            // query:()=>"api/models",
+            query:()=>"user",
+
         })
     })
     
