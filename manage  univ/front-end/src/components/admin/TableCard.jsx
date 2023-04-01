@@ -2,32 +2,29 @@ import React from 'react';
 import Table from 'react-bootstrap/Table';
 import { useSelector } from 'react-redux';
 import Button from 'react-bootstrap/Button';
-import { addToCart, removeFromCart,showUsers } from '../../redux/cartSlice';
 import { useDispatch } from 'react-redux';
 import Row from 'react-bootstrap/esm/Row';
 import Col from 'react-bootstrap/esm/Col';
 import { useEffect } from 'react';
-import axios from 'axios';
-const TableCard = (props) => {
-    const cart=useSelector((state)=>state.cart)
-    const dispatch=useDispatch()
-    const handleRemoveProd=(x)=>{
-dispatch(removeFromCart(x))
-    }
+import { usersFetch } from '../../redux/ProductSlice';
 
-    const handleAddProd=(x)=>{
-      dispatch(addToCart(x))
-          }
+const TableCard = (props) => {
+  const  {items,status,error}=useSelector(state=>state.users)  // console.log("raid")
+  console.log(items)
+
+    const dispatch=useDispatch()
+
+
+
        
           useEffect(() => {
-            axios.get('/localhost:5000/user')
-              .then(res => {
-                dispatch(showUsers(res.data));
-              })
-              .catch(err => {
-                console.log(err);
-              });
-          }, [cart,dispatch]);
+            
+         dispatch(usersFetch())
+          }, [dispatch]);
+
+          useEffect(() => {
+            
+             }, []);
        
     return (
         <div>
@@ -43,18 +40,18 @@ dispatch(removeFromCart(x))
         </tr>
       </thead>
       <tbody>
-         {props.data.map(item=>{
-
-         return(
+         {items.map(item=>{
+console.log(items)
+         (
           <tr key={item._id}>
           <td>{item._id}</td>
  
-          <td><Row ><Col><img src={item.img} height='60' width='60' style={{"marginRight":"10px"}}  alt="" /></Col><Col>
+          <td><Row ><Col><img src={item.image} height='60' width='60' style={{"marginRight":"10px"}}  alt="" /></Col><Col>
           { item.name}</Col></Row>
           <Button variant="outline-primary" style={{"marginLeft":"20px",marginBottom:"5px"}} size="sm"  onClick={()=>null}>
            edit
         </Button>  
-          <Button variant="outline-danger" style={{"marginLeft":"20px"}} size="sm"  onClick={()=>handleRemoveProd(item)}>
+          <Button variant="outline-danger" style={{"marginLeft":"20px"}} size="sm"  onClick={()=>{}}>
            remove
         </Button>   
 

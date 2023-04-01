@@ -9,16 +9,15 @@ import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
 import { clearCart,addToCart,removeFromCart } from '../../redux/cartSlice';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 import { useGetAllusersQuery } from '../../redux/UserApi';
 import Nav from 'react-bootstrap/Nav';
-import axios from 'axios';
 
 
 const Admin = () => {
-    const { data, error, isLoading } = useGetAllusersQuery();
+  const  {items,status,error}=useSelector(state=>state.users) 
+    console.log(items)
+  console.log(status)
 
-    const cart=useSelector((state)=>state.cart)
     const dispatch=useDispatch()
     const handleClearCart=()=>{
         dispatch(clearCart())
@@ -49,13 +48,13 @@ const Admin = () => {
 
     </Nav>
 <h2>users list</h2>  
-{data==0?(<><div className='cart-empty'><p>there's no user</p></div></>
+{items==0?(<><div className='cart-empty'><p>there's no user</p></div></>
 
 
 )
 :(
     <><div>
-                        <TableCard  data={data} />
+                        <TableCard  alluser={items}/>
                     </div><div className="cart-summary container">
                            
 

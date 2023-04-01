@@ -15,4 +15,20 @@ export  const usersApi = createApi({
 })
 
 
+// export  const userApi = createApi({
+//     reducerPath:"userApi",
+//     baseQuery:fetchBaseQuery({baseUrl:"http://localhost:5000/"}),
+//     endpoints:(builder)=>({
+//         getAllusers:builder.query({  // it create custom hook auto
+//             // query:()=>"api/models",
+//             query:()=>"user/:id",
+
+//         })
+//     })
+    
+// })
+
+
 export const{useGetAllusersQuery}=usersApi;
+// export const{useGetAlluserQuery}=userApi;
+

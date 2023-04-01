@@ -6,11 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from 'react-redux';
 import  store  from './redux/store';
-import {usersFetch } from './redux/ProductSlice';
+// import {usersFetch } from './redux/ProductSlice';
 import { loadUser } from './redux/authSlice';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 //dispatch  the action creator
-store.dispatch(usersFetch())
+// store.dispatch(usersFetch())
 store.dispatch(loadUser(null))
 
 root.render(
