@@ -4,7 +4,7 @@ import Navbare from './components/Navbare';
 import Admin from "./components/admin/admin"
 import Agent from "./components/Agent"
 import SearchBare from './components/SearchBare';
-
+import Edit from "./components/admin/edit"
 
 import { BrowserRouter,Route, Routes ,} from 'react-router-dom';
 import NotFount from './components/NotFount';
@@ -15,7 +15,7 @@ import {ToastContainer} from 'react-toastify'
  import 'react-toastify/dist/ReactToastify.css';
 import Bag from './components/admin/admin';
 import Carosel from './components/Carosel';
-import Register from './components/auth/register';
+import Register from './components/admin/register';
 import Login from './components/auth/login';
 import { QRCodeSVG } from 'qrcode.react';
 
@@ -41,6 +41,8 @@ function App() {
         <Route path="admin" exact element={<Admin/>}/>
         <Route path="register" exact element={<Register/>}/>
         <Route path="login" exact element={<Login/>}/>
+        <Route path="edit" exact element={<Edit/>}/>
+
         {/* <Route path="qrcode" exact element={<QRCodeSVG/>}/> */}
 
 

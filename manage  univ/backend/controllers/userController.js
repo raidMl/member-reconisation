@@ -36,6 +36,7 @@ const searchUser = async (req, res) => {
 }
 const updateUser = async (req, res) => {
     try {
+        
         const { id } = req.params
         const user = await User.findByIdAndUpdate(id, req.body)
         if (!user)
@@ -43,6 +44,7 @@ const updateUser = async (req, res) => {
 
         const updateUser = await User.findById(id)
         res.status(200).json(updateUser)
+        
     } catch (error) {
         res.status(500).json({ message: error })
     }
@@ -52,7 +54,7 @@ const deleteUser = async (req, res) => {
 
     try {
         const { id } = req.params
-        const removeduser = await user.findByIdAndDelete(id)
+        const removeduser = await User.findByIdAndDelete(id)
         if (!removeduser) {
             return res.status(404).json({ message: `can not find any user with id ${id}` })
         }

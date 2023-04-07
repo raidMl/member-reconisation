@@ -80,7 +80,7 @@ const Navbare = () => {
 
                          </Col></Row>
                            ):
-                           <><Nav.Link><Link to='register'>Register</Link></Nav.Link><Nav.Link><Link to='login'>login</Link></Nav.Link></>
+                           <><Nav.Link><Link to='login'>login</Link></Nav.Link></>
                                   }
                  
                   

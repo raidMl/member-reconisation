@@ -6,12 +6,13 @@ import { registerUser } from '../../redux/authSlice';
 import { useNavigate } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import NavMenu from './navMenu';
 
 import { QRCodeSVG } from 'qrcode.react';
-import QrGen from  './../QrGen'
+import QrGen from  '../QrGen'
 function Register() {
     const  auth=useSelector(state=>state.auth )
-    console.log(auth)
+    // console.log(auth)
 
     
     
@@ -20,8 +21,8 @@ function Register() {
         email:"",
         password:"",
         qrcode:null,
-        role:"",
-        faculty:"",
+        role:"student",
+        faculty:"sciences",
         matricule:""
       
 
@@ -36,13 +37,16 @@ function Register() {
         // {()=>setUser({...user ,qrcode={}}
         dispatch(registerUser(user))
     }
-     useEffect(() => {
-      if(auth._id)
+   //   useEffect(() => {
+   //    if(auth._id)
 
-      {navigate('/admin')}
+   //    {navigate('/admin')}
       
-     }, [auth._id,navigate]);
+   //   }, [auth._id,navigate]);
   return (
+
+<div><NavMenu></NavMenu>
+
     <Form onSubmit={handleSubmit} style={{display:"flex",flexDirection:"column",alignItems:"center",margin:"50px auto"}}>
        <Row><Col>
       <Form.Group className="mb-3" >
@@ -53,7 +57,7 @@ function Register() {
 
       size="" style={{width:"300px",margin:"0 auto"}} aria-label="Default select example"  >
       {/* <option disabled>choose role </option> */}
-      <option value="student">student</option>
+      <option  value="student">student</option>
       <option value="agent">agent</option>
       <option value="teacher">teacher</option>
           </Form.Select>
@@ -68,7 +72,7 @@ function Register() {
 
       size="" style={{width:"300px",margin:"0 auto"}} aria-label="Default select example"  >
       {/* <option disabled>choose role </option> */}
-      <option value="sciences">faculté des sciences</option>
+      <option  value="sciences">faculté des sciences</option>
       <option value="gestion">faculté de gestion</option>
       <option value="medcine"> faculté de medcine</option>
       <option value="biologie">faculté debiologie</option>
@@ -113,7 +117,8 @@ function Register() {
       <Button  type='submit' variant="success">{auth.registerStatus=="pending"?"submiting":'Register'}</Button>
       {auth.registerStatus=="rejected"?<p>{auth.registerError}</p>:null
 }
-          </Form>
+          </Form></div>
+
   );
 }
 

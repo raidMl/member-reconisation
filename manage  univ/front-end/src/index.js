@@ -8,6 +8,9 @@ import { Provider } from 'react-redux';
 import  store  from './redux/store';
 // import {usersFetch } from './redux/ProductSlice';
 import { loadUser } from './redux/authSlice';
+
+  import { usersApi } from './redux/UserApi';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 //dispatch  the action creator
 // store.dispatch(usersFetch())
@@ -15,7 +18,7 @@ store.dispatch(loadUser(null))
 
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={store}  >
     <App />
     </Provider>
   </React.StrictMode>
