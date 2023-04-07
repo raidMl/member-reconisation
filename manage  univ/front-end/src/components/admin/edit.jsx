@@ -18,6 +18,7 @@ const EditUser=()=> {
 
     
      const [user, setUser] = useState({
+        id:myitem._id, //alhamdolilah
         name:myitem.name,
         email:myitem.email,
         password:myitem.password,
