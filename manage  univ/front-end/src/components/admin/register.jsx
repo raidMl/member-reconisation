@@ -12,9 +12,15 @@ import { QRCodeSVG } from 'qrcode.react';
 import QrGen from  '../QrGen'
 function Register() {
     const  auth=useSelector(state=>state.auth )
+    const dispatch=useDispatch()
+    const navigate=useNavigate()
     // console.log(auth)
 
+    useEffect(() => {
+      if(auth.role!=="admin" || !auth._id)
+        {navigate('/login')}
     
+   }, [auth,navigate]);
     
      const [user, setUser] = useState({
         name:"",
@@ -30,8 +36,7 @@ function Register() {
      
      
     
-     const dispatch=useDispatch()
-     const navigate=useNavigate()
+
      const handleSubmit=(e)=>{
         e.preventDefault();
         // {()=>setUser({...user ,qrcode={}}

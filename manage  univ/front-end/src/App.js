@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Navbare from './components/Navbare';
 import Admin from "./components/admin/admin"
+import User from './components/user/user'
 import Agent from "./components/Agent"
 import SearchBare from './components/SearchBare';
 import Edit from "./components/admin/edit"
@@ -18,6 +19,7 @@ import Carosel from './components/Carosel';
 import Register from './components/admin/register';
 import Login from './components/auth/login';
 import { QRCodeSVG } from 'qrcode.react';
+import Stat from './components/admin/stat/stat';
 
 
 function App() {
@@ -40,6 +42,9 @@ function App() {
         <Route path="/" exact element={<Carosel/>}/>
         <Route path="admin" exact element={<Admin/>}/>
         <Route path="register" exact element={<Register/>}/>
+        <Route path="stat" exact element={<Stat/>}/>
+
+        <Route path="user" exact element={<User/>}/>
         <Route path="login" exact element={<Login/>}/>
         <Route path="edit" exact element={<Edit/>}/>
 

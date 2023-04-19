@@ -19,8 +19,12 @@ function Login() {
         dispatch(loginUser(user))
      }
      useEffect(() => {
-      if(auth._id)
+      if(auth._id){
+        if(auth.role==="admin")
       {navigate('/admin')}
+       else if(auth.role==="student" ||auth.role==="teacher"){
+        navigate('/user')
+     }}
       
      }, [auth._id,navigate]);
   return (

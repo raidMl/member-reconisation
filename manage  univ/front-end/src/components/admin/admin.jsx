@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { useSelector } from 'react-redux';
 import { Link ,useNavigate} from 'react-router-dom';
 import  returnic from './../images/return.svg'
@@ -16,8 +16,15 @@ import NavMenu from './navMenu';
 const Admin = () => {
   const {data:items,isLoading,isSuccess,isError,error}=useGetAllusersQuery()
   const navigate=useNavigate()
+  const  auth=useSelector(state=>state.auth )
+  useEffect(() => {
+  // if(auth.role!="admin")
+  if(!auth._id || auth.role!="admin")
+
+  {navigate('/login')}
   
-  // console.log(items)
+ }, [auth.role]);
+  console.log(items)
   if(isLoading){return <p>Loading...</p>}
   else if(isError){return <p>{error}</p>}
   else if(isSuccess){

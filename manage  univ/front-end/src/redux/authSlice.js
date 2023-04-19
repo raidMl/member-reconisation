@@ -98,6 +98,7 @@ const authSlice = createSlice({
                     email: user.email,
                     _id: user._id,
                     loginStatus: "success",
+                    role:user.role
                 }
             } else return state
         })
