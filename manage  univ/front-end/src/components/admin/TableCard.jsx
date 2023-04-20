@@ -7,24 +7,38 @@ import trash from './../images/trash1.svg'
 import { useState } from 'react';
  import { useDeleteUserMutation } from '../../redux/UserApi';
 import { useNavigate } from 'react-router-dom';
-
+import SearchBare from '../SearchBare';
+import { useSelector } from 'react-redux';
+import Form from 'react-bootstrap/Form';
+import scan from '.././images/qr_code_scanner_black_24dp.svg'
 const TableCard = (props) => {
+  const [SearchF,setSearch]=useState('')
 
   const[deleteUser]=useDeleteUserMutation();
   const navigate=useNavigate()
-
 const items=props.items;
 
 // console.log(items);
-
        
   
     return (
         <div style={{"overflowX":"auto"}}>
+            <Form className="d-flex ">
+               <button onClick="" style={{'border':'none'}}> <img className='blackImg' src={scan} alt="bag" style={{}}/></button>
+
+               <Form.Control onChange={(e)=>setSearch(e.target.value)}
+                    type="search"
+                    placeholder="Search"
+                    className="me-2"
+                    aria-label="Search"
+                    
+                  />
+                  <Button variant="outline-success">Search</Button>
+                </Form>
             <Table striped bordered hover >
       <thead>
         <tr>
-          <th>id</th>
+          <th>email</th>
           <th>name</th>
           <th>Role</th>
           <th>faculty</th>
@@ -33,10 +47,13 @@ const items=props.items;
         </tr>
       </thead>
       <tbody>
-         {items.map(item=>{
+         {items.filter((fitem)=>{
+          return SearchF.toLowerCase()===''?fitem
+          :(fitem.name.toLowerCase().includes(SearchF)||(fitem.email.toLowerCase().includes(SearchF)))
+         }).map(item=>{
          return(
           <tr key={item._id}>
-          <td>{item._id}</td>
+          <td>{item.email}</td>
  
           <td><Row ><Col><img src={item.image} height='60' width='60' style={{"marginRight":"10px"}}  alt="" /></Col><Col>
           { item.name}</Col></Row>

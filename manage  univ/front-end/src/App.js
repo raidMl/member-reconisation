@@ -34,7 +34,7 @@ function App() {
       <Navbare/>
 
       <header className="App-search">
-      <SearchBare/>
+      {/* <SearchBare/> */}
       </header>
       <Routes>
         {/* <Route path="/not-found" component={NotFount}/> */}

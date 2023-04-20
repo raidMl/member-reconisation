@@ -21,6 +21,7 @@ const SearchBare = () => {
 
   
   
+const [SearchF,setSearch]=useState('')
 
     return (
         <div>
@@ -28,7 +29,7 @@ const SearchBare = () => {
                <Form className="d-flex ">
                <button onClick="" style={{'border':'none'}}> <img className='blackImg' src={scan} alt="bag" style={{}}/></button>
 
-               <Form.Control
+               <Form.Control onChange={(e)=>setSearch(e.target.value)}
                     type="search"
                     placeholder="Search"
                     className="me-2"
