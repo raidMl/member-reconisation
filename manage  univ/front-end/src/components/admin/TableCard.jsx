@@ -38,7 +38,7 @@ const items=props.items;
             <Table striped bordered hover >
       <thead>
         <tr>
-          <th>email</th>
+          <th>emails</th>
           <th>name</th>
           <th>Role</th>
           <th>faculty</th>
