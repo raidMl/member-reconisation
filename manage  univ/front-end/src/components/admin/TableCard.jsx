@@ -38,15 +38,15 @@ const items=props.items;
             <Table striped bordered hover >
       <thead>
         <tr>
-          <th>emails</th>
+          <th>email</th>
           <th>name</th>
           <th>Role</th>
           <th>faculty</th>
-          {/* <th>delete</th> */}
 
         </tr>
       </thead>
       <tbody>
+        
          {items.filter((fitem)=>{
           return SearchF.toLowerCase()===''?fitem
           :(fitem.name.toLowerCase().includes(SearchF)||(fitem.email.toLowerCase().includes(SearchF)))
