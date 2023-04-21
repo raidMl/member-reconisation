@@ -11,6 +11,8 @@ import SearchBare from '../SearchBare';
 import { useSelector } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import scan from '.././images/qr_code_scanner_black_24dp.svg'
+import "./../css/searchbar.css"
+
 const TableCard = (props) => {
   const [SearchF,setSearch]=useState('')
 
@@ -22,8 +24,8 @@ const items=props.items;
        
   
     return (
-        <div style={{"overflowX":"auto"}}>
-            <Form className="d-flex ">
+        <div>
+             <Form className="myform">
                <button onClick="" style={{'border':'none'}}> <img className='blackImg' src={scan} alt="bag" style={{}}/></button>
 
                <Form.Control onChange={(e)=>setSearch(e.target.value)}
@@ -33,8 +35,9 @@ const items=props.items;
                     aria-label="Search"
                     
                   />
-                  <Button variant="outline-success">Search</Button>
                 </Form>
+        <div style={{"overflowX":"auto"}}>
+         
             <Table striped bordered hover >
       <thead>
         <tr>
@@ -73,7 +76,7 @@ const items=props.items;
          })}
       </tbody>
     </Table>
-        </div>
+    </div>      </div>
     );
 }
 

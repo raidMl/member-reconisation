@@ -2,23 +2,8 @@ form{width: 100%;margin:0}
 form .form-control{width: 400px!important;border:1px solid rgb(46, 129, 46)}
 
 
-.cont .bag-nbr{
-    /* background: #ff4747; */
-    background: rgb(46, 129, 46);
-    max-width: 25px;
-    min-width: 20px;
-    height: 20px;
-    color: #fff;
-    border-radius: 10px;
-    position: absolute;
-    top: 2px;
-    left: 20px;
-    font-size: 12px;
-    line-height: 20px;
-    text-align: center;
-    padding: 0 2px;}
 
-.cont {position: relative;}
+.myform{display: flex ;flex-direction: row;justify-content: center;align-items:center ;}
 
 .form-control{margin-left: 30px;}
 
