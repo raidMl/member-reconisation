@@ -19,18 +19,20 @@ const Admin = () => {
   const {data:items,isLoading,isSuccess,isError,error}=useGetAllusersQuery()
   const navigate=useNavigate()
   const  auth=useSelector(state=>state.auth )
-
-  useEffect(() => {
-  // if(auth.role!="admin")
+  console.log("auth=========")
+console.log(auth)
+//   useEffect(() => {
+//   // if(auth.role!="admin")
   if(!auth._id || auth.role!="admin")
 
   {navigate('/login')}
   
- }, [auth.role]);
+//  }, [auth.role]);
   console.log(items)
-  if(isLoading){return <p>Loading...</p>}
+  if(isLoading && auth._id){return <p>Loading...</p>}
   else if(isError){return <p>{error}</p>}
-  else if(isSuccess){
+  else if(isSuccess && auth._id && auth.role==="admin" ){
+     console.log(auth)
      const sear='';
     return (
         <div className='cart-container'>

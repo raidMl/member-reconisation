@@ -20,7 +20,7 @@ function Register() {
       if(auth.role!=="admin" || !auth._id)
         {navigate('/login')}
     
-   }, [auth,navigate]);
+    }, [auth,navigate]);
     
      const [user, setUser] = useState({
         name:"",
@@ -42,12 +42,7 @@ function Register() {
         // {()=>setUser({...user ,qrcode={}}
         dispatch(registerUser(user))
     }
-   //   useEffect(() => {
-   //    if(auth._id)
-
-   //    {navigate('/admin')}
-      
-   //   }, [auth._id,navigate]);
+       if(auth._id && auth.role==="admin")
   return (
 
 <div><NavMenu></NavMenu>

@@ -3,7 +3,8 @@ import axios from "axios";
 import { url } from './api'
 import jwtDecode from 'jwt-decode'
 
-const initialState = {
+const initialState =
+{
     token: localStorage.getItem("token"),
     name: "",
     email: "",
@@ -36,6 +37,8 @@ export const loginUser = createAsyncThunk(
         try {
             const token = await axios.post(`${url}/login`, { email: values.email, password: values.password })
             localStorage.setItem("token", token.data)
+            // const userslist = [{ "email": values.email }, { "password": values.password }];
+            // localStorage.setItem("userslist", userslist)
             return token.data
         } catch (error) {
             console.log(error.response.data)
@@ -56,6 +59,7 @@ const authSlice = createSlice({
                     name: user.name,
                     email: user.email,
                     _id: user._id,
+                    role: user.role,
                     userLoaded: true,
                 }
             }
@@ -91,14 +95,16 @@ const authSlice = createSlice({
         builder.addCase(loginUser.fulfilled, (state, action) => {
             if (action.payload) {                 //we use this verfictation to evide error if token doesn't exist
                 const user = jwtDecode(action.payload) //decode token
+                // console.log("user==========")
+                // console.log(user)
                 return {
                     ...state,
                     token: action.payload,
+                    role: user.role,
                     name: user.name,
                     email: user.email,
                     _id: user._id,
                     loginStatus: "success",
-                    role:user.role
                 }
             } else return state
         })

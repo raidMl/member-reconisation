@@ -18,7 +18,7 @@ function Login() {
         e.preventDefault();
         dispatch(loginUser(user))
      }
-     useEffect(() => {
+    //  useEffect(() => {
       if(auth._id){
         if(auth.role==="admin")
       {navigate('/admin')}
@@ -26,7 +26,7 @@ function Login() {
         navigate('/user')
      }}
       
-     }, [auth._id,navigate]);
+    //  }, [auth._id,navigate]);
   return (
     <Form onSubmit={handleSubmit} style={{display:"flex",flexDirection:"column",alignItems:"center",margin:"50px auto"}}>
       
