@@ -57,8 +57,8 @@ const items=props.items;
          return(
           <tr key={item._id}>
           <td>{item.email}</td>
- 
-          <td><Row ><Col><img src={item.image} height='60' width='60' style={{"marginRight":"10px"}}  alt="" /></Col><Col>
+          <td><Row ><Col><img src={`../../../images/${item.image}`} height='60' width='60' style={{"marginRight":"10px"}}  alt="" /></Col><Col>
+
           { item.name}</Col></Row>
           <Button variant="outline-primary" style={{"marginLeft":"20px",marginBottom:"5px"}} size="sm"  onClick={()=>{navigate("/edit/",{state:{item}})}}>
            edit

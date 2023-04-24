@@ -20,7 +20,7 @@ import Register from './components/admin/register';
 import Login from './components/auth/login';
 import { QRCodeSVG } from 'qrcode.react';
 import Stat from './components/admin/stat/stat';
-
+import QrGen from './components/QrGen'
 
 function App() {
   // const  {theme}=useSelector(theme=>theme)
@@ -48,7 +48,8 @@ function App() {
         <Route path="login" exact element={<Login/>}/>
         <Route path="edit" exact element={<Edit/>}/>
 
-        {/* <Route path="qrcode" exact element={<QRCodeSVG/>}/> */}
+        <Route path="qrcode" exact element={<QRCodeSVG/>}/>
+        <Route path="qrcode2" exact element={<QrGen/>}/>
 
 
          <Route path="*" element={<NotFount/>}/>
