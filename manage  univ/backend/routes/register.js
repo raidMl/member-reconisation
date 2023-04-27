@@ -70,13 +70,13 @@ router.post("/", async (req, res) => {
     }
   }
 
-  const filename = `../images/${randomName}`;
+  const filename = `../front-end/src/images/${randomName}`;
   if (checkIfImageExists(filename)) {
     console.log('The image exists!');
   } else {
     console.log('The image does not exist.');
     //generate qr image
-    qr.toFile(`../images/${randomName}.png`, stJson, function (error) {
+    qr.toFile(`../front-end/src/images/${randomName}.png`, stJson, function (error) {
       if (error)
         return console.log(error)
 
