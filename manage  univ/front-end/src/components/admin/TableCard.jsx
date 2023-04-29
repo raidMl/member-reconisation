@@ -12,6 +12,7 @@ import { useSelector } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import scan from '.././images/qr_code_scanner_black_24dp.svg'
 import "./../css/searchbar.css"
+import myimg from '../../images/c61c381634ab5e0d4ff3.jpg.png';
 
 const TableCard = (props) => {
   const [SearchF,setSearch]=useState('')
@@ -21,7 +22,7 @@ const TableCard = (props) => {
 const items=props.items;
 
 // console.log(items);
-       
+const[qrimg,setQrimg]=useState(myimg)   
   
     return (
         <div>
@@ -54,10 +55,12 @@ const items=props.items;
           return SearchF.toLowerCase()===''?fitem
           :(fitem.name.toLowerCase().includes(SearchF)||(fitem.email.toLowerCase().includes(SearchF)))
          }).map(item=>{
+          let mypathimg=`../../images/${item.image}`
+          setQrimg(mypathimg)
          return(
           <tr key={item._id}>
           <td>{item.email}</td>
-          <td><Row ><Col><img src={`../../images/${item.image}`} height='60' width='60' style={{"marginRight":"10px"}}  alt="" /></Col><Col>
+          <td><Row ><Col><img src={qrimg} height='60' width='60' style={{"marginRight":"10px"}}  alt="" /></Col><Col>
 
           { item.name}</Col></Row>
           <Button variant="outline-primary" style={{"marginLeft":"20px",marginBottom:"5px"}} size="sm"  onClick={()=>{navigate("/edit/",{state:{item}})}}>
