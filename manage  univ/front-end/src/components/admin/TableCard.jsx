@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/esm/Row';
@@ -55,9 +55,9 @@ const[qrimg,setQrimg]=useState(myimg)
           return SearchF.toLowerCase()===''?fitem
           :(fitem.name.toLowerCase().includes(SearchF)||(fitem.email.toLowerCase().includes(SearchF)))
          }).map(item=>{
-          let mypathimg=`../../images/${item.image}`
+          let mypathimg= item?`../../images/${item.image}`:null
           //
-          setQrimg(mypathimg)
+            setQrimg(mypathimg)    
          return(
           <tr key={item._id}>
           <td>{item.email}</td>
