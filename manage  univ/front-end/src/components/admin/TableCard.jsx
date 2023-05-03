@@ -56,7 +56,7 @@ const[qrimg,setQrimg]=useState(myimg)
           :(fitem.name.toLowerCase().includes(SearchF)||(fitem.email.toLowerCase().includes(SearchF)))
          }).map(item=>{
           let mypathimg=`../../images/${item.image}`
-          
+          //r
           setQrimg(mypathimg)
          return(
           <tr key={item._id}>
