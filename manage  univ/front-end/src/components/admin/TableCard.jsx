@@ -13,6 +13,7 @@ import Form from 'react-bootstrap/Form';
 import scan from '.././images/qr_code_scanner_black_24dp.svg'
 import "./../css/searchbar.css"
 import myimg from '../../images/c61c381634ab5e0d4ff3.jpg.png';
+import importImage from './importImage'
 
 const TableCard = (props) => {
   const [SearchF,setSearch]=useState('')
@@ -22,8 +23,8 @@ const TableCard = (props) => {
 const items=props.items;
 
 // console.log(items);
-const[qrimg,setQrimg]=useState(myimg)   
-  
+const[qrimg,setQrimg]=useState('')   
+
     return (
         <div>
              <Form className="myform">
@@ -56,8 +57,14 @@ const[qrimg,setQrimg]=useState(myimg)
           :(fitem.name.toLowerCase().includes(SearchF)||(fitem.email.toLowerCase().includes(SearchF)))
          }).map(item=>{
           let mypathimg= item?`../../images/${item.image}`:null
-          //
-            setQrimg(mypathimg)    
+         // if(item.image){
+          let imageSrc = importImage(item.image);
+          console.log('---------------');
+          console.log(imageSrc)
+          console.log('---------------');
+
+            setQrimg(imageSrc) 
+          //}   
          return(
           <tr key={item._id}>
           <td>{item.email}</td>
