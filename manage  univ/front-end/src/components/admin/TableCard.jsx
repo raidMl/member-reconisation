@@ -57,7 +57,7 @@ const[qrimg,setQrimg]=useState('')
           :(fitem.name.toLowerCase().includes(SearchF)||(fitem.email.toLowerCase().includes(SearchF)))
          }).map(item=>{
           let mypathimg= item?`../../images/${item.image}`:null
-          if(item.image){
+          if(item.image!=null){
           let imageSrc = importImage(item.image);
           console.log('---------------');
           console.log(imageSrc)
