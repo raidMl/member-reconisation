@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SearchBare from '../SearchBare';
 import { useSelector } from 'react-redux';
+import ImageChecker from './imgchecker';
 import Form from 'react-bootstrap/Form';
 import scan from '.././images/qr_code_scanner_black_24dp.svg'
 import "./../css/searchbar.css"
@@ -70,7 +71,16 @@ const[qrimg,setQrimg]=useState('')
          return(
           <tr key={item._id}>
           <td>{item.email}</td>
-          <td><Row ><Col><img src={myimg} height='60' width='60' style={{"marginRight":"10px"}}  alt="" /></Col><Col>
+          <td><Row ><Col>
+          {/* {item.image!==""?
+          <img src={require(`../../images/${item.image}`)} height='60' width='60' style={{"marginRight":"10px"}}  alt="" />
+          :<img src={require(`../../images/c61c381634ab5e0d4ff3.jpg.png`)} height='60' width='60' style={{"marginRight":"10px"}}  alt="" />
+         } */}
+          {/* <img src={(item.image!="" || item.image!=null ||  require(`../../images/${item.image}`))?require(`../../images/${item.image}`):myimg} height='60' width='60' style={{"marginRight":"10px"}}  alt="" /> */}
+          <img src ={item.image==""?require(`./../../images/${item.image}`):myimg}        onError={console.log("dad in img")}height='60' width='60' style={{"marginRight":"10px"}}  alt="image" /> 
+          {/* <ImageChecker imagePath="../../images/c61c381634ab5e0d4ff3.jpg.png"/> */}
+
+          </Col><Col>
 
           { item.name}</Col></Row>
           <Button variant="outline-primary" style={{"marginLeft":"20px",marginBottom:"5px"}} size="sm"  onClick={()=>{navigate("/edit/",{state:{item}})}}>
