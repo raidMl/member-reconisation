@@ -1,0 +1,31 @@
+.items{display: flex;flex-direction: row;align-items: center;justify-content:space-evenly;}
+.itemx{
+    border:none;
+    height: 160px;
+    margin:10px;
+    width: 140px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 10px grey;
+    padding: 10px;
+
+
+}
+.items .itemx{display: flex;flex-direction: column;justify-content: stat;align-items: center;}
+.itemx *{margin:5px auto}
+ .itemx img{width: 50px;height: 50px;border-radius: 5px;}
+.itemx:hover{background-color: rgba(160, 157, 154, 0.685);
+    box-shadow: 5px 6px 10px grey;
+    color: black;
+}
+
+.spincircle{ 
+ margin: 50px auto;   
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;    
+
+}
+.spincircle .div1{ 
+    height: 400px;
+width: 400px;}

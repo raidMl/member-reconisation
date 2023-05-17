@@ -75,7 +75,10 @@
   .dark .card-body{color:white;background-color: #333;}
   .dark select *{color: rgb(36, 35, 35)!important;}
   .dark select {color: rgb(36, 35, 35)!important;}
-
+.dark .cont .itemx:hover{background-color: antiquewhite;
+  box-shadow: 5px 6px 10px grey;
+  color: black!important;
+}
   .light {
   background-color: #fff!important;
   color: #333!important;

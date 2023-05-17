@@ -58,17 +58,19 @@ const[qrimg,setQrimg]=useState('')
          }).map(item=>{
           let mypathimg= item?`../../images/${item.image}`:null
           if(item.image!=null){
-          let imageSrc = importImage(item.image);
+          //let imageSrc = importImage(item.image);
+          let imageSrc = null
+
           console.log('---------------');
           console.log(imageSrc)
           console.log('---------------');
 
-            setQrimg(imageSrc) 
+            //  setQrimg(imageSrc) 
           }   
          return(
           <tr key={item._id}>
           <td>{item.email}</td>
-          <td><Row ><Col><img src={qrimg} height='60' width='60' style={{"marginRight":"10px"}}  alt="" /></Col><Col>
+          <td><Row ><Col><img src={myimg} height='60' width='60' style={{"marginRight":"10px"}}  alt="" /></Col><Col>
 
           { item.name}</Col></Row>
           <Button variant="outline-primary" style={{"marginLeft":"20px",marginBottom:"5px"}} size="sm"  onClick={()=>{navigate("/edit/",{state:{item}})}}>
