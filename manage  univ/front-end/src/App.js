@@ -6,7 +6,7 @@ import User from './components/user/user'
 import Agent from "./components/Agent"
 import SearchBare from './components/SearchBare';
 import Edit from "./components/admin/edit"
-
+import UserInfo from './components/admin/userinfo';
 import { BrowserRouter,Route, Routes ,} from 'react-router-dom';
 import NotFount from './components/NotFount';
 import { Navigate } from 'react-router-dom';
@@ -43,6 +43,8 @@ function App() {
         <Route path="admin" exact element={<Admin/>}/>
         <Route path="register" exact element={<Register/>}/>
         <Route path="stat" exact element={<Stat/>}/>
+        <Route path="userinfo" exact element={<UserInfo/>}/>
+
 
         <Route path="user" exact element={<User/>}/>
         <Route path="login" exact element={<Login/>}/>

@@ -15,6 +15,7 @@ import { useGetAllusersQuery,useDeleteUserMutation } from '../../redux/UserApi';
 import Nav from 'react-bootstrap/Nav';
 import NavMenu from './navMenu';
 import SearchBare from '../SearchBare';
+import Spinner from 'react-bootstrap/Spinner'
 const Admin = () => {
   const {data:items,isLoading,isSuccess,isError,error}=useGetAllusersQuery()
   const navigate=useNavigate()
@@ -29,7 +30,7 @@ console.log(auth)
   
 //  }, [auth.role]);
   console.log(items)
-  if(isLoading && auth._id){return <p>Loading...</p>}
+  if(isLoading && auth._id){return <p>Loading...  <br/><Spinner animation="grow" variant="primary" /></p>}
   else if(isError){return <p>{error}</p>}
   else if(isSuccess && auth._id && auth.role==="admin" ){
      console.log(auth)

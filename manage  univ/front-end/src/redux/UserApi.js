@@ -7,6 +7,14 @@ export const usersApi = createApi({
     tagTypes: ['user'], //using for caching or invalidat
 
     endpoints: (builder) => ({
+        //get one user
+        getOneUser: builder.query({  
+            query: ({ id }) => `/user${ id }`,
+            providesTags: ['user']
+
+        }),
+
+
         getAllusers: builder.query({  // it create custom hook auto
             // query:()=>"api/models",
             query: () => "/user",

@@ -72,20 +72,18 @@ const[qrimg,setQrimg]=useState('')
           <tr key={item._id}>
           <td>{item.email}</td>
           <td><Row ><Col>
-          {/* {item.image!==""?
-          <img src={require(`../../images/${item.image}`)} height='60' width='60' style={{"marginRight":"10px"}}  alt="" />
-          :<img src={require(`../../images/c61c381634ab5e0d4ff3.jpg.png`)} height='60' width='60' style={{"marginRight":"10px"}}  alt="" />
-         } */}
-          {/* <img src={(item.image!="" || item.image!=null ||  require(`../../images/${item.image}`))?require(`../../images/${item.image}`):myimg} height='60' width='60' style={{"marginRight":"10px"}}  alt="" /> */}
-          <img src ={item.image==""?require(`./../../images/${item.image}`):myimg}        onError={console.log("dad in img")}height='60' width='60' style={{"marginRight":"10px"}}  alt="image" /> 
-          {/* <ImageChecker imagePath="../../images/c61c381634ab5e0d4ff3.jpg.png"/> */}
+          <img src ={item.image?require(`./../../images/${item.image}`):null}        onError={console.log("dad in img")}height='60' width='60' style={{"marginRight":"10px"}}  alt="image" /> 
 
           </Col><Col>
 
           { item.name}</Col></Row>
+          <Button variant="outline-secondary" style={{"marginLeft":"20px",marginBottom:"5px"}} size="sm"  onClick={()=>{navigate(`/userinfo/`,{state:{item}})}}>
+           show
+        </Button> 
           <Button variant="outline-primary" style={{"marginLeft":"20px",marginBottom:"5px"}} size="sm"  onClick={()=>{navigate("/edit/",{state:{item}})}}>
            edit
         </Button>  
+
            <Button variant="" style={{"marginLeft":"20px"}} size="sm"  onClick={()=>deleteUser({id:item._id})}>
            <img src={trash} alt="" />
            

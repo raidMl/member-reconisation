@@ -1,0 +1,5 @@
+table tr td:first-of-type{
+    text-align: left!important;
+}
+.table{border-radius: 20px!important;}
+.imginfo{border-radius: 10px;margin-bottom: 10px;}
