@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/esm/Button';
 import React from 'react';
@@ -7,13 +7,12 @@ import Col from 'react-bootstrap/esm/Col';
 import Table from 'react-bootstrap/Table';
 import './../css/userinfo.css'
 import NavMenu from './navMenu';
-
-
+import { useSelector } from 'react-redux';
 const Userinfo=()=> {
     const params = useLocation();
     const myitem=params.state.item;
     console.log(myitem)
-   
+  
        
         const [user, setUser] = useState({
            id:myitem._id, //alhamdolilah
